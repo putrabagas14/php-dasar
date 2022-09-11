@@ -14,8 +14,6 @@ if(isset($_POST["cari"])){
 $batas = 3;
 $halaman = isset($_GET["halaman"]) ? (int)$_GET["halaman"] : 1;
 $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0 ;
-var_dump($halaman_awal);
-var_dump($halaman);
 
 $prev = $halaman - 1;
 $next = $halaman + 1;
@@ -23,7 +21,6 @@ $next = $halaman + 1;
 $data_m = mysqli_query($connection, "SELECT * FROM mahasiswa");
 $jumlah_data = mysqli_num_rows($data_m);
 $total_halaman = ceil($jumlah_data / $batas);
-var_dump($total_halaman);
 
 $data_mahasiswa = query("select * from mahasiswa limit $halaman_awal, $batas");
 $nomor = $halaman_awal+1;
